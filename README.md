@@ -3,8 +3,11 @@
 ## SEMANA 17 y 18
 
 **LOGRO:** desarrollar un e-commerce y/o tienda virtual orientada al responsive web design, aplicando siempre los estándares adecuados de desarrollo.
+
 **Es hora de demostrar lo aprendido:**
+
 **RETO:** crea un e-commerce y/o tienda virtual orientada al responsive web design, aplicando siempre los estándares adecuados de desarrollo. Además, es fundamental que en tu proyecto web se puedan administrar los productos y realizar compras de los mismos. 
+
 **Insumos brindados por los docentes:**
 
  - Motor de Base de Datos PostgreSQL(migración): solucion_reto\rrss\migrations\0001_initial.py
