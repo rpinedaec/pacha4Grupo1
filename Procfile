@@ -1,1 +1,1 @@
-web: gunicorn hrkprj.wsgi --log-file -
+web: gunicorn ecommprj.wsgi --log-file -

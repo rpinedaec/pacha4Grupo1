@@ -10,24 +10,22 @@
 
 **Insumos brindados por los docentes:**
 
- - Motor de Base de Datos PostgreSQL(migración): solucion_reto\rrss\migrations\0001_initial.py
+ - Motor de Base de Datos PostgreSQL(migración): pacha4grupo1\ecommapp\migrations\0001_initial.py
  - Diseño de la aplicación (historias de usuario)
  - Documentación y ejercicios similares al reto
  - Repositorio grupal por proyecto
 	 1. BackEnd
 		 - https://github.com/rpinedaec/pacha4Grupo1.git
-		 - https://github.com/rpinedaec/pacha4Grupo2.git
-		 - https://github.com/rpinedaec/pacha4Grupo3.git
-		 - https://github.com/rpinedaec/pacha4Grupo4.git
+		 - Participantes:
+		 	- bruce.porras@PachaQTec.edu.pe
+			- denisse.garcia@PachaQTec.edu.pe
+			- **paola.sanchez@PachaQTec.edu.pe**
 
 	 2. FrontEnd
 		 - https://github.com/rpinedaec/pacha4Grupo1.git
-		 - https://github.com/rpinedaec/pacha4Grupo2.git
-		 - https://github.com/rpinedaec/pacha4Grupo3.git
-		 - https://github.com/rpinedaec/pacha4Grupo4.git
 
 **Herramientas Colaborativas:**
- - Control de versiones GitLab
+ - Control de versiones GitLab/GitHub
  - Trello para asignación de tareas y para seguimiento del proyecto de manera grupal
  - Teams para comunicación semanal de avances y resolución de inconvenientes
  - PostMan para hacer pruebas de los servicios
@@ -45,14 +43,18 @@ Funcionalidades mínimas a desarrollar:
 - Maquetar Registro / Login (web y mobile)
 - MaquetarCheckout (web y mobile)
 - Maquetar Pasarela de Pago (web y mobile)
+- Maquetar Enviar whatsapp con instrucciones de pago efectivo 
 - Maquetar Mis Compras (web y mobile)
+- **URL EN PROD**
 - API -Home (Listado de productos, Filtros de búsqueda, categorías, precios, etc)
+- API -Detalle de Producto (Detalle del producto)
 - API -Registro / Login (Validar usuario)
+- API -Codigo de Descuento(agregar - Validar)
 - API -Checkout (Carrito de compras)
 - API -Pasarela de pagos (Compra real -Culqi)
 - API -Mis Compras (Compras realizadas -Estados)
 
-Los criterios de aceptación implican la realización deun desarrollo lo más idéntico posible al Mockup que se puede encontrar en la carpeta de insumos.
+Los criterios de aceptación implican la realización de un desarrollo lo más idéntico posible al Mockup que se puede encontrar en la carpeta de insumos.
 
 **Presentación de los trabajos finales**
 - El planteamiento debe enfocarse en cumplir con la descripción del reto
@@ -60,7 +62,7 @@ Los criterios de aceptación implican la realización deun desarrollo lo más id
 - La presentación del proyecto se hará en una url pública
 - Los servicios se deben desplegar en un servicio cloud (Heroku)
 - El trabajo debe ser el resultado de una participación colaborativay activa de todo el grupo
-- Se evaluarácon base en los merge requesto commits aportados
+- Se evaluará con base en los merge request commits aportados
 - Cada alumno expondrá la parte que desarrolló del proyecto
 
 
