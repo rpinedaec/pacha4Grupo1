@@ -5,8 +5,8 @@ class Cupon(models.Model):
     codigo = models.CharField(max_length=200)
     descripcion = models.CharField(max_length=2000)
     descuento = models.DecimalField(max_digits=10,decimal_places=2)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True, null=True)
+    updated = models.DateTimeField(auto_now=True, null=True)
     class Meta():
         verbose_name= 'cupon'
         verbose_name_plural=  'cupones'
@@ -16,8 +16,8 @@ class Cupon(models.Model):
 
 class Estado_pedido(models.Model):
     descripcion = models.CharField(max_length=200)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True, null=True)
+    updated = models.DateTimeField(auto_now=True, null=True)
     class Meta():
         verbose_name= 'estado_pedido'
         verbose_name_plural=  'estado_pedidos'
@@ -28,8 +28,8 @@ class Estado_pedido(models.Model):
 class Categoria(models.Model):
     nombre = models.CharField(max_length=200)
     descripcion = models.CharField(max_length=2000)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True, null=True)
+    updated = models.DateTimeField(auto_now=True, null=True)
     class Meta():
         verbose_name= 'categoria'
         verbose_name_plural=  'categorias'
@@ -42,8 +42,8 @@ class Cliente(models.Model):
     nombre = models.CharField(max_length=200)
     email = models.EmailField()
     password = models.CharField(max_length=200)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True, null=True)
+    updated = models.DateTimeField(auto_now=True, null=True)
     class Meta():
         verbose_name= 'cliente'
         verbose_name_plural=  'clientes'
@@ -59,8 +59,8 @@ class Producto(models.Model):
     imagen = models.ImageField(upload_to = 'productos')
     precio = models.DecimalField(max_digits=10,decimal_places=2)
     descuento = models.DecimalField(max_digits=10,decimal_places=2)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True, null=True)
+    updated = models.DateTimeField(auto_now=True, null=True)
     class Meta():
         verbose_name= 'producto'
         verbose_name_plural=  'productos'
@@ -76,8 +76,8 @@ class Pedido(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     estado = models.ForeignKey(Estado_pedido, on_delete=models.CASCADE)
     cupon = models.ForeignKey(Cupon, on_delete=models.CASCADE, blank=True, null=True)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True, null=True)
+    updated = models.DateTimeField(auto_now=True, null=True)
     class Meta():
         verbose_name= 'pedido'
         verbose_name_plural=  'pedidos'
@@ -87,8 +87,8 @@ class Detalle_pedido(models.Model):
     producto = models.ForeignKey(Producto,on_delete=models.CASCADE)
     cantidad = models.IntegerField()
     subtotal = models.DecimalField(max_digits=10,decimal_places=2)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    updated = models.DateTimeField(auto_now=True, null=True, blank=True)
     class Meta():
         verbose_name= 'detalle_pedido'
         verbose_name_plural=  'detalle_pedidos'
