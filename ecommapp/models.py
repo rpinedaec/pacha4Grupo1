@@ -54,7 +54,7 @@ class Cliente(models.Model):
 class Producto(models.Model):
     nombre = models.CharField(max_length=200)
     descripcion = models.CharField(max_length=200)
-    categoria = models.ForeignKey(categoria, on_delete=models.CASCADE)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     igv = models.BooleanField(default=True)
     imagen = models.ImageField(upload_to = 'productos')
     precio = models.DecimalField(max_digits=10,decimal_places=2)
@@ -73,9 +73,9 @@ class Pedido(models.Model):
     subtotal = models.DecimalField(max_digits=10,decimal_places=2)
     igv = models.DecimalField(max_digits=10,decimal_places=2)
     total = models.DecimalField(max_digits=10,decimal_places=2)
-    cliente = models.ForeignKey(cliente, on_delete=models.CASCADE)
-    estado = models.ForeignKey(estado_pedido, on_delete=models.CASCADE)
-    cupon = models.ForeignKey(cupon, on_delete=models.CASCADE, blank=True, null=True)
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    estado = models.ForeignKey(Estado_pedido, on_delete=models.CASCADE)
+    cupon = models.ForeignKey(Cupon, on_delete=models.CASCADE, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     class Meta():
@@ -83,8 +83,8 @@ class Pedido(models.Model):
         verbose_name_plural=  'pedidos'
 
 class Detalle_pedido(models.Model):
-    pedido = models.ForeignKey(pedido, on_delete=models.CASCADE)
-    producto = models.ForeignKey(producto,on_delete=models.CASCADE)
+    pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
+    producto = models.ForeignKey(Producto,on_delete=models.CASCADE)
     cantidad = models.IntegerField()
     subtotal = models.DecimalField(max_digits=10,decimal_places=2)
     created = models.DateTimeField(auto_now_add=True)
