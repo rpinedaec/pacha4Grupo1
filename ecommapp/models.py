@@ -53,7 +53,7 @@ class Cliente(models.Model):
 
 class Producto(models.Model):
     nombre = models.CharField(max_length=200)
-    descripcion = models.CharField(max_length=200)
+    descripcion = models.CharField(max_length=2000)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     igv = models.BooleanField(default=True)
     imagen = models.ImageField(upload_to = 'productos')
