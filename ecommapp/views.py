@@ -5,36 +5,36 @@ from .serializers import CuponSerializer, Estado_pedidoSerializer, CategoriaSeri
 
 # Create your views here.
 class CuponViewSet(viewsets.ModelViewSet):
-    queryset = Cupon.objects.all().order_by('-date_joined')
+    queryset = Cupon.objects.all()
     serializer_class = CuponSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 class Estado_pedidoViewSet(viewsets.ModelViewSet):
-    queryset = Estado_pedido.objects.all().order_by('-date_joined')
+    queryset = Estado_pedido.objects.all()
     serializer_class = Estado_pedidoSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 class CategoriaViewSet(viewsets.ModelViewSet):
-    queryset = Categoria.objects.all().order_by('-date_joined')
+    queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 class ClienteViewSet(viewsets.ModelViewSet):
-    queryset = Cliente.objects.all().order_by('-date_joined')
+    queryset = Cliente.objects.all()
     serializer_class = ClienteSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 class ProductoViewSet(viewsets.ModelViewSet):
-    queryset = Producto.objects.all().order_by('-date_joined')
+    queryset = Producto.objects.all()
     serializer_class = ProductoSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 class PedidoViewSet(viewsets.ModelViewSet):
-    queryset = Pedido.objects.all().order_by('-date_joined')
+    queryset = Pedido.objects.all()
     serializer_class = PedidoSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 class Detalle_pedidoViewSet(viewsets.ModelViewSet):
-    queryset = Detalle_pedido.objects.all().order_by('-date_joined')
+    queryset = Detalle_pedido.objects.all()
     serializer_class = Detalle_pedidoSerializer
     permission_classes = [permissions.IsAuthenticated]
