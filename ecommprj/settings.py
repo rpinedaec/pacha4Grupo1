@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 import django_heroku
 import os
 
@@ -27,7 +28,7 @@ SECRET_KEY = 'c(5omj(5_kxv_2^+wrme0rfe+(_&c*%*uq6(&km06t@r@i5q)3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 
 # Application definition
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'herokuapp',
     'ecommapp'
     
 ]
