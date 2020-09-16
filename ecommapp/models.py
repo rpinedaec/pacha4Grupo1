@@ -58,7 +58,7 @@ class Producto(models.Model):
     igv = models.BooleanField(default=True)
     imagen = models.ImageField(upload_to = 'productos')
     precio = models.DecimalField(max_digits=10,decimal_places=2)
-    cupon= models.ForeignKey(Cupon, null=True, blank=True,on_delete=models.SET_NULL)
+    descuento = models.DecimalField(max_digits=10,decimal_places=2)
     created = models.DateTimeField(auto_now_add=True, null=True)
     updated = models.DateTimeField(auto_now=True, null=True)
     class Meta():
@@ -75,7 +75,7 @@ class Pedido(models.Model):
     total = models.DecimalField(max_digits=10,decimal_places=2)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     estado = models.ForeignKey(Estado_pedido, on_delete=models.CASCADE)
-    cupon = models.ForeignKey(Cupon, on_delete=models.CASCADE, blank=True, null=True)
+    cupon = models.ForeignKey(Cupon, on_delete=models.SET_NULL, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True, null=True)
     updated = models.DateTimeField(auto_now=True, null=True)
     class Meta():
