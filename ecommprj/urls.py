@@ -1,16 +1,5 @@
 from django.contrib import admin
 from django.urls import path, include
-<<<<<<< HEAD
-from . import views
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.Home, name='inicio'),
-    path('cursos/', views.Tienda, name='cursos'),
-    path('mipedido/', views.MiPedido, name='orden'),
-    path('login/', include('login.urls')),
-]
-=======
 from rest_framework import routers
 from ecommapp import views
 from django.conf import settings
@@ -32,4 +21,3 @@ urlpatterns = [
 ]
 
 urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
->>>>>>> 6dd7b06b702c15db76cf193a7d185b9c1e73ff03
