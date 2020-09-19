@@ -35,3 +35,4 @@ class PedidoViewSet(viewsets.ModelViewSet):
 class Detalle_pedidoViewSet(viewsets.ModelViewSet):
     queryset = Detalle_pedido.objects.all()
     serializer_class = Detalle_pedidoSerializer
+    permission_classes = [permissions.IsAuthenticated]
