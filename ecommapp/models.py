@@ -56,7 +56,7 @@ class Producto(models.Model):
     descripcion = models.CharField(max_length=2000)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     igv = models.BooleanField(default=True)
-    imagen = models.ImageField(upload_to = 'productos')
+    imagen = models.ImageField()
     precio = models.DecimalField(max_digits=10,decimal_places=2)
     descuento = models.DecimalField(max_digits=10,decimal_places=2)
     created = models.DateTimeField(auto_now_add=True, null=True)

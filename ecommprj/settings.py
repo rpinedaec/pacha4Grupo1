@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'storages',
     'herokuapp',
     'ecommapp'
     
@@ -130,6 +131,13 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 django_heroku.settings(locals())
+
+AWS_MEDIA_STORAGE_BUCKET_NAME = 'grupo1'
+AWS_MEDIA_S3_REGION_NAME = 'us-east-2'
+AWS_MEDIA_ACCESS_KEY_ID = 'AKIAIXZHGFKDSLMCTYUA'
+AWS_MEDIA_SECRET_ACCESS_KEY = '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'
+AWS_MEDIA_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_MEDIA_STORAGE_BUCKET_NAME
+DEFAULT_FILE_STORAGE = 'ecommprj.custom_storages.MediaStorage'
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
