@@ -3,6 +3,10 @@ from rest_framework import permissions
 from .models import Cupon, Estado_pedido, Categoria, Cliente, Producto, Pedido, Detalle_pedido
 from .serializers import CuponSerializer, Estado_pedidoSerializer, CategoriaSerializer, ClienteSerializer, ProductoSerializer, PedidoSerializer, Detalle_pedidoSerializer
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+
 # Create your views here.
 class CuponViewSet(viewsets.ModelViewSet):
     queryset = Cupon.objects.all()
