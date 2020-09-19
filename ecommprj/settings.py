@@ -15,6 +15,9 @@ import dj_database_url
 import django_heroku
 import os
 
+prod_db  =  dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -28,7 +31,7 @@ SECRET_KEY = 'c(5omj(5_kxv_2^+wrme0rfe+(_&c*%*uq6(&km06t@r@i5q)3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -48,6 +51,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -125,15 +129,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = "/static/"
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static'),
+)
 
 django_heroku.settings(locals())
 
 AWS_MEDIA_STORAGE_BUCKET_NAME = 'grupo1'
-AWS_MEDIA_S3_REGION_NAME = 'us-east-2'
+AWS_MEDIA_S3_REGION_NAME = 'us-east-1'
 AWS_MEDIA_ACCESS_KEY_ID = 'AKIAIXZHGFKDSLMCTYUA'
 AWS_MEDIA_SECRET_ACCESS_KEY = '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'
 AWS_MEDIA_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_MEDIA_STORAGE_BUCKET_NAME
