@@ -7,35 +7,32 @@ from .serializers import CuponSerializer, Estado_pedidoSerializer, CategoriaSeri
 class CuponViewSet(viewsets.ModelViewSet):
     queryset = Cupon.objects.all()
     serializer_class = CuponSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
 class Estado_pedidoViewSet(viewsets.ModelViewSet):
     queryset = Estado_pedido.objects.all()
     serializer_class = Estado_pedidoSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
 class CategoriaViewSet(viewsets.ModelViewSet):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
 class ClienteViewSet(viewsets.ModelViewSet):
     queryset = Cliente.objects.all()
     serializer_class = ClienteSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
 class ProductoViewSet(viewsets.ModelViewSet):
     queryset = Producto.objects.all()
     serializer_class = ProductoSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
 class PedidoViewSet(viewsets.ModelViewSet):
     queryset = Pedido.objects.all()
     serializer_class = PedidoSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
 class Detalle_pedidoViewSet(viewsets.ModelViewSet):
     queryset = Detalle_pedido.objects.all()
     serializer_class = Detalle_pedidoSerializer
+<<<<<<< HEAD
     permission_classes = [permissions.IsAuthenticated]
 >>>>>>> 6dd7b06b702c15db76cf193a7d185b9c1e73ff03
+=======
+>>>>>>> e9713e2ef3f8ca3d05da36a4ecdcac89f165eaff
