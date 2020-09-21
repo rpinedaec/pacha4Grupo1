@@ -1,37 +1,38 @@
 from .models import Cupon, Estado_pedido, Categoria, Cliente, Producto, Pedido, Detalle_pedido
 from rest_framework import serializers
 
-class CuponSerializer(serializers.HyperlinkedModelSerializer):
+class CuponSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cupon
-        fields = ['url','id','codigo','descripcion','descuento','created','updated']
+        fields = ['id','codigo','descripcion','descuento','created','updated']
 
-class Estado_pedidoSerializer(serializers.HyperlinkedModelSerializer):
+class Estado_pedidoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Estado_pedido
-        fields = ['url','id','descripcion','created','updated']
+        fields = ['id','descripcion','created','updated']
 
-class CategoriaSerializer(serializers.HyperlinkedModelSerializer):
+class CategoriaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Categoria
-        fields = ['url','id','nombre','descripcion','created','updated']
+        fields = ['id','nombre','descripcion','created','updated']
 
-class ClienteSerializer(serializers.HyperlinkedModelSerializer):
+class ClienteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cliente
-        fields = ['url','id','username','nombre','email','password','created','updated']
+        fields = ['id','username','nombre','email','password','created','updated']
 
-class ProductoSerializer(serializers.HyperlinkedModelSerializer):
+class ProductoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Producto
-        fields = ['url','id','nombre','descripcion','categoria','igv','imagen','precio','descuento','created','updated']
+        fields = ['id','nombre','descripcion','categoria','igv','imagen','precio','descuento','created','updated']
 
-class PedidoSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Pedido
-        fields = ['url','id','fecha','subtotal','igv','total','cliente','estado','cupon','created','updated']
-
-class Detalle_pedidoSerializer(serializers.HyperlinkedModelSerializer):
+class Detalle_pedidoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Detalle_pedido
-        fields = ['url','id','pedido','producto','cantidad','subtotal','created','updated']
+        fields = ['id','pedido','producto','cantidad','subtotal','created','updated']
+
+class PedidoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pedido
+        fields = ['id','fecha','subtotal','igv','total','cliente','estado','cupon','created','updated','Detalle_pedido']
+    Detalle_pedido = Detalle_pedidoSerializer(many=True)
