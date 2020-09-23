@@ -7,9 +7,6 @@ from rest_framework.response import Response
 from rest_framework.authentication import SessionAuthentication, TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 class CuponViewSet(viewsets.ModelViewSet):
@@ -38,7 +35,6 @@ class ClienteViewSet(viewsets.ModelViewSet):
 
 class ProductoViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
-    authentication_classes = (TokenAuthentication, SessionAuthentication)
     queryset = Producto.objects.all()
     serializer_class = ProductoSerializer
 
