@@ -34,5 +34,4 @@ class Detalle_pedidoSerializer(serializers.ModelSerializer):
 class PedidoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pedido
-        fields = ['id','fecha','subtotal','igv','total','cliente','estado','cupon','created','updated','Detalle_pedido']
-    Detalle_pedido = Detalle_pedidoSerializer(many=True)
+        fields = ['id','fecha','subtotal','igv','total','cliente','estado','cupon','created','updated']
