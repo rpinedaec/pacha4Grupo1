@@ -72,7 +72,7 @@ ROOT_URLCONF = 'ecommprj.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "ecommapp/template")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

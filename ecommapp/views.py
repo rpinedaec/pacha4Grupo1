@@ -92,9 +92,8 @@ class Detalle_pedidoViewSet(viewsets.ModelViewSet):
             url = 'https://api.culqi.com/v2/charges'
             charge = requests.post(url, json=data, headers=hed)
 
-
-            print(charge)
             dicRes = {'message':'EXITO'}
+            print(dicRes)
             return JsonResponse(charge.json(), safe=False)
 
         return JsonResponse("only POST method", safe=False)
