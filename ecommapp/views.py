@@ -5,10 +5,12 @@ from .models import Cupon, Estado_pedido, Categoria, Cliente, Producto, Pedido, 
 from .serializers import CuponSerializer, Estado_pedidoSerializer, CategoriaSerializer, ClienteSerializer, ProductoSerializer, PedidoSerializer, Detalle_pedidoSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
-#from rest_framework.authentication import SessionAuthentication, TokenAuthentication
+from rest_framework.authentication import SessionAuthentication, TokenAuthentication
 from django.views.decorators.csrf import csrf_exempt
 import requests
 from django.http import JsonResponse
+from .template import payment
+from django.shortcuts import render
 #from rest_framework.permissions import IsAuthenticated
 
 
@@ -69,6 +71,9 @@ class Detalle_pedidoViewSet(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter]
     search_fields=['pedido']
 
+def payment(request):
+    return render(request, 'payment/index.html')
+
 @csrf_exempt
 def charges(request):
     if request.method == 'POST':
@@ -79,7 +84,7 @@ def charges(request):
         monto = int(request.POST['monto'])
         descrpcion = 'Pago pachaqtec curso online'
         moneda = request.POST['moneda']
-        auth_token='tokenprivado'
+        auth_token='sk_test_9dda9590d5943420'
         hed = {'Authorization': 'Bearer ' + auth_token}
         data = {
                     'amount': monto,
@@ -91,7 +96,6 @@ def charges(request):
                 }
         url = 'https://api.culqi.com/v2/charges'
         charge = requests.post(url, json=data, headers=hed)
-
 
         print(charge)
         dicRes = {'message':'EXITO'}
