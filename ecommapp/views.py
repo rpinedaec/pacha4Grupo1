@@ -9,8 +9,8 @@ from rest_framework.authentication import SessionAuthentication, TokenAuthentica
 from django.views.decorators.csrf import csrf_exempt
 import requests
 from django.http import JsonResponse
-from template.payment import *
-from static.payment import *
+from .template import payment
+from django.shortcuts import render
 #from rest_framework.permissions import IsAuthenticated
 
 
