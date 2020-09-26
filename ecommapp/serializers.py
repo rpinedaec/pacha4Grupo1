@@ -24,7 +24,7 @@ class ClienteSerializer(serializers.ModelSerializer):
 class ProductoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Producto
-        fields = ['id','nombre','descripcion','categoria','igv','imagen','precio','descuento','created','updated']
+        fields = ['id','nombre','descripcion','categoria','igv','imagen','imagen_card','precio','descuento','created','updated']
 
 class Detalle_pedidoSerializer(serializers.ModelSerializer):
     class Meta:
