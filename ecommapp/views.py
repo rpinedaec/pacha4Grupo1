@@ -69,32 +69,32 @@ class Detalle_pedidoViewSet(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter]
     search_fields=['pedido']
 
-    @csrf_exempt
-    def charges(request):
-        if request.method == 'POST':
-            token = request.POST['token']
-            installments = request.POST['installments']
-            pedido = int(request.POST['idPedido'])
-            email = request.POST['email']
-            monto = int(request.POST['monto'])
-            descrpcion = 'Pago pachaqtec curso online'
-            moneda = request.POST['moneda']
-            auth_token='tokenprivado'
-            hed = {'Authorization': 'Bearer ' + auth_token}
-            data = {
-                        'amount': monto,
-                        'currency_code': moneda,
-                        'email': email,
-                        'source_id':token,
-                        'installments':installments,
-                        'metadata':{'Descripcion': descrpcion}
-                    }
-            url = 'https://api.culqi.com/v2/charges'
-            charge = requests.post(url, json=data, headers=hed)
+@csrf_exempt
+def charges(request):
+    if request.method == 'POST':
+        token = request.POST['token']
+        installments = request.POST['installments']
+        pedido = int(request.POST['idPedido'])
+        email = request.POST['email']
+        monto = int(request.POST['monto'])
+        descrpcion = 'Pago pachaqtec curso online'
+        moneda = request.POST['moneda']
+        auth_token='tokenprivado'
+        hed = {'Authorization': 'Bearer ' + auth_token}
+        data = {
+                    'amount': monto,
+                    'currency_code': moneda,
+                    'email': email,
+                    'source_id':token,
+                    'installments':installments,
+                    'metadata':{'Descripcion': descrpcion}
+                }
+        url = 'https://api.culqi.com/v2/charges'
+        charge = requests.post(url, json=data, headers=hed)
 
 
-            print(charge)
-            dicRes = {'message':'EXITO'}
-            return JsonResponse(charge.json(), safe=False)
+        print(charge)
+        dicRes = {'message':'EXITO'}
+        return JsonResponse(charge.json(), safe=False)
 
-        return JsonResponse("only POST method", safe=False)
+    return JsonResponse("only POST method", safe=False)
